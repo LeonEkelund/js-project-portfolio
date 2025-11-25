@@ -1,8 +1,31 @@
+import HeaderSection from './sections/HeaderSection';
+// import TechSection from './sections/TechSection';
+// import ProjectsSection from './sections/ProjectsSection';
+// import ThoughtsSection from './sections/ThoughtsSection';
+// import SkillsSection from './sections/SkillsSection';
+// import ContactSection from './sections/ContactSection';
+
+import GlobalStyle from './styles/GlobalStyle';
+
 export const App = () => {
   return (
     <>
-      <h1>Portfolio</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, laborum! Maxime animi nostrum facilis distinctio neque labore consectetur beatae eum ipsum excepturi voluptatum, dicta repellendus incidunt fugiat, consequatur rem aperiam.</p>
+      <GlobalStyle />
+
+      <header>
+        <HeaderSection />
+      </header>
+
+      {/* <main>
+        <TechSection />
+        <ProjectsSection />
+        <ThoughtsSection />
+        <SkillsSection />
+      </main>
+
+      <footer>
+        <ContactSection />
+      </footer> */}
     </>
-  )
-}
+  );
+};
