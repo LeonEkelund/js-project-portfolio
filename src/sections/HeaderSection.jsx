@@ -1,19 +1,26 @@
-import styled from 'styled-components';
-import leonImage from '../assets/leonimage.png';
-
+import styled from "styled-components";
+import leonImage from "../assets/leonimage.jpg";
+import headerimage2 from "../assets/HeaderImage2.jpg";
+import headerimage3 from "../assets/HeaderImage3.jpg";
 
 const HeaderSection = () => {
   return (
     <HeaderWrapper>
       <HeaderContent>
-        <ImageCard />
-
         <TextGroup>
           <Title>
             Hi there, I'm <Name>Leon Ekelund</Name>
           </Title>
-          <Subtitle>Frontend Developer</Subtitle>
+          <Subtitle>
+            Creative Frontend Developer with a Background in EV charging and Music
+          </Subtitle>
         </TextGroup>
+
+        <ImageWrapper>
+          <img src={leonImage} alt="Portrait of Leon Ekelund" />
+          <img src={headerimage2} alt="Abstract background 1" />
+          <img src={headerimage3} alt="Abstract background 2" />
+        </ImageWrapper>
       </HeaderContent>
     </HeaderWrapper>
   );
@@ -21,42 +28,80 @@ const HeaderSection = () => {
 
 export default HeaderSection;
 
-/* ================= STYLES ================= */
+// STYLING
 
 const HeaderWrapper = styled.section`
-  background: white;
+  background: #fff;
   width: 100%;
+    padding-bottom: 5rem
 `;
 
 const HeaderContent = styled.div`
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 4rem 1.5rem;
-
+  padding: 4rem 1.5rem 3rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 3rem;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
-  }
+  text-align: center;
+  gap: 2rem;
 `;
 
-const ImageCard = styled.div`
-  width: 280px;
-  height: 360px;
-  border-radius: 12px;
+const ImageWrapper = styled.div`
+  /* Desktop-ish: match design but allow shrink on small screens */
+  width: 100%;
+  max-width: 358px;
+  aspect-ratio: 358 / 382;
+  position: relative;
+  margin: 0 auto;
 
-  background:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url(${leonImage}) center / cover no-repeat,
-    #D9D9D9;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+  }
+
+  /* center portrait (1st img = leonImage) */
+  img:nth-child(1) {
+    z-index: 3;
+    transform: translate(-50%, -55%);
+  }
+
+  /* left background card */
+  img:nth-child(2) {
+    z-index: 1;
+    transform: translate(-68%, -50%) rotate(-8deg);
+  }
+
+  /* right background card */
+  img:nth-child(3) {
+    z-index: 2;
+    transform: translate(-32%, -50%) rotate(8deg);
+  }
+
+  @media (max-width: 480px) {
+    /* make the whole stack smaller on mobile */
+    max-width: 280px;
+
+    img:nth-child(2) {
+      transform: translate(-63%, -50%) rotate(-6deg);
+    }
+
+    img:nth-child(3) {
+      transform: translate(-37%, -50%) rotate(6deg);
+    }
+  }
 `;
 
 const TextGroup = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
 `;
 
 const Title = styled.h1`
@@ -74,6 +119,6 @@ const Name = styled.span`
 
 const Subtitle = styled.p`
   font-size: 1rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
   opacity: 0.8;
 `;

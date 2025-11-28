@@ -12,6 +12,9 @@ const GlobalStyle = createGlobalStyle`
     background: #f5f5f5;
     color: #111;
     line-height: 1.5;
+  overflow-x: hidden;
+  
+
   }
 
   img {
