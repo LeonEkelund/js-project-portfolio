@@ -48,30 +48,38 @@ const ProjectCard = ({
 
 export default ProjectCard;
 
-
 /* STYLING */
-
 
 const Card = styled.div`
   display: flex;
-  align-items: center;          /* center image + text vertically */
-  gap: 7.8rem;                  /* ≈125px, like Figma */
-  margin: 5rem auto;
-  width: 100%;                  /* <-- NEW: all cards same width */
-  max-width: 1100px;
+  align-items: center;
+  gap: 4.5rem;         
+  margin: 4rem auto; 
+  width: 100%;
+  max-width: 1000px;  
 
   flex-direction: ${({ reverse }) => (reverse ? "row-reverse" : "row")};
 
-  @media (max-width: 768px) {
+  /* IPAD */
+  @media (max-width: 1024px) {
     flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-    align-items: center;
+    align-items: flex-start;
+    gap: 1.75rem;
+    margin: 3rem auto;
+    padding: 0 1.5rem;  
+  }
+
+  /* MOBILE */
+  @media (max-width: 600px) {
+    gap: 1.5rem;
+    margin: 2.5rem auto;
+    padding: 0 1.25rem;
   }
 `;
 
 const ImageWrapper = styled.div`
-  flex: 0 0 479px;              /* fixed width, doesn't shrink */
+  /* DESKTOP */
+  flex: 0 0 479px;
   height: 479px;
   border-radius: 16px;
   background: #f5f5f5;
@@ -83,14 +91,16 @@ const ImageWrapper = styled.div`
   img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain;        /* full image visible */
-    border-radius: 12px;
+    object-fit: contain;
+    border-radius: 16px;
     display: block;
   }
 
-  @media (max-width: 768px) {
+  /* IPAD:
+  @media (max-width: 1024px) {
+    flex: 0 0 auto;
     width: 100%;
-    max-width: 479px;
+    max-width: none;
     height: auto;
 
     img {
@@ -98,15 +108,30 @@ const ImageWrapper = styled.div`
       height: auto;
     }
   }
+
+  /* MOBILE:
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const Content = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-`;
+  gap: 0.75rem;     
+  text-align: left;
 
+    /* IPAD:
+  @media (max-width: 1024px) {
+    width: 100%;
+    max-width: 650px;
+  }
+  /* MOBILE:
+  @media (max-width: 600px) {
+    max-width: none;
+  }
+`;
 
 const TechList = styled.div`
   display: flex;
@@ -123,7 +148,7 @@ const TechList = styled.div`
 
 const Buttons = styled.div`
   display: flex;
-  flex-direction: column;  /* STACK */
-  gap: 0.5rem;             /* 8px between buttons */
-  margin-top: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
 `;

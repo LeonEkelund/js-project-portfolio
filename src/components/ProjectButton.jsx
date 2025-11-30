@@ -18,7 +18,7 @@ const Button = styled.a`
   align-items: center;
   gap: 16px;
 
-  width: 303px;
+  width: 250px;
   height: 48px;
   padding: 0 16px;
   box-sizing: border-box;
@@ -49,6 +49,6 @@ const IconWrapper = styled.span`
   svg {
     width: 20px;
     height: 20px;
-    color: #ffffff;   /* 👈 make icons white */
+    color: #ffffff; 
   }
 `;
