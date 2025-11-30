@@ -1,27 +1,54 @@
-
 import styled from "styled-components";
 
 const ProjectButton = ({ icon, text, link }) => {
   return (
     <Button href={link} target="_blank">
-      {icon}
-      {text}
+      {icon && <IconWrapper>{icon}</IconWrapper>}
+      <span>{text}</span>
     </Button>
   );
 };
 
 export default ProjectButton;
 
-// STYLING
+/* STYLING */
 
 const Button = styled.a`
-  background: #000;
-  color: #fff;
-  padding: 0.7rem 1.2rem;
-  border-radius: 999px;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 16px;
+
+  width: 303px;
+  height: 48px;
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  background: #000000;
+  color: #ffffff;
+  border-radius: 12px;
+
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+
+  transition: opacity 0.2s ease;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+const IconWrapper = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: #ffffff;   /* 👈 make icons white */
+  }
 `;

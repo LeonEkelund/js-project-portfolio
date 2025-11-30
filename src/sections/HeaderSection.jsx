@@ -11,16 +11,17 @@ const HeaderSection = () => {
           <Title>
             Hi there, I'm <Name>Leon Ekelund</Name>
           </Title>
+          <ImageWrapper>
+            <img src={leonImage} alt="Portrait of Leon Ekelund" />
+            <img src={headerimage2} alt="Abstract background 1" />
+            <img src={headerimage3} alt="Abstract background 2" />
+          </ImageWrapper>
+
           <Subtitle>
             Creative Frontend Developer with a Background in EV charging and Music
           </Subtitle>
         </TextGroup>
 
-        <ImageWrapper>
-          <img src={leonImage} alt="Portrait of Leon Ekelund" />
-          <img src={headerimage2} alt="Abstract background 1" />
-          <img src={headerimage3} alt="Abstract background 2" />
-        </ImageWrapper>
       </HeaderContent>
     </HeaderWrapper>
   );
@@ -54,6 +55,7 @@ const ImageWrapper = styled.div`
   aspect-ratio: 358 / 382;
   position: relative;
   margin: 0 auto;
+  margin-top: 100px;
 
   img {
     position: absolute;
@@ -121,4 +123,5 @@ const Subtitle = styled.p`
   font-size: 1rem;
   margin-top: 2rem;
   opacity: 0.8;
+  margin-top: 60px;
 `;

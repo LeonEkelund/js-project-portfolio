@@ -1,6 +1,7 @@
 
 import styled from "styled-components";
 import ProjectButton from "./ProjectButton";
+import { FaGlobe, FaGithub } from "react-icons/fa";
 
 const ProjectCard = ({
   image,
@@ -28,43 +29,84 @@ const ProjectCard = ({
         <p>{description}</p>
 
         <Buttons>
-          <ProjectButton text="Live demo" link={liveLink} />
-          <ProjectButton text="View Code" link={codeLink} />
+          <ProjectButton
+            icon={<FaGlobe />}
+            text="Live demo"
+            link={liveLink}
+          />
+          <ProjectButton
+            icon={<FaGithub />}
+            text="View Code"
+            link={codeLink}
+          />
         </Buttons>
       </Content>
     </Card>
   );
 };
 
+
 export default ProjectCard;
+
 
 /* STYLING */
 
+
 const Card = styled.div`
   display: flex;
-  align-items: center;
-  gap: 3rem;
-  margin: 5rem 0;
+  align-items: center;          /* center image + text vertically */
+  gap: 7.8rem;                  /* ≈125px, like Figma */
+  margin: 5rem auto;
+  width: 100%;                  /* <-- NEW: all cards same width */
+  max-width: 1100px;
 
   flex-direction: ${({ reverse }) => (reverse ? "row-reverse" : "row")};
 
   @media (max-width: 768px) {
     flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    align-items: center;
   }
 `;
 
 const ImageWrapper = styled.div`
-  flex: 1;
+  flex: 0 0 479px;              /* fixed width, doesn't shrink */
+  height: 479px;
+  border-radius: 16px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 
   img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;        /* full image visible */
+    border-radius: 12px;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
     width: 100%;
-    border-radius: 16px;
+    max-width: 479px;
+    height: auto;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 `;
 
 const Content = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
+
 
 const TechList = styled.div`
   display: flex;
@@ -81,6 +123,7 @@ const TechList = styled.div`
 
 const Buttons = styled.div`
   display: flex;
-  gap: 1rem;
+  flex-direction: column;  /* STACK */
+  gap: 0.5rem;             /* 8px between buttons */
   margin-top: 1rem;
 `;

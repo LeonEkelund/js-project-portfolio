@@ -55,8 +55,11 @@ export default ProjectsSection;
 
 const Wrapper = styled.section`
   padding: 6rem 1.5rem;
-  max-width: 80%;
+  max-width: 90%;
   margin: 0 auto;
+  display: flex;
+flex-direction: column;
+  
 
   h2 {
     text-align: center;
