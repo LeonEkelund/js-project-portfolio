@@ -49,7 +49,7 @@ const HeaderContent = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  /* Desktop-ish: match design but allow shrink on small screens */
+  /* Desktop / default */
   width: 100%;
   max-width: 358px;
   aspect-ratio: 358 / 382;
@@ -86,16 +86,38 @@ const ImageWrapper = styled.div`
     transform: translate(-32%, -50%) rotate(8deg);
   }
 
+  /* Regular small phones */
   @media (max-width: 480px) {
-    /* make the whole stack smaller on mobile */
     max-width: 280px;
 
+    /* make the cards a bit smaller so they don't stick out */
+    img {
+      width: 92%;
+    }
+
     img:nth-child(2) {
-      transform: translate(-63%, -50%) rotate(-6deg);
+      transform: translate(-62%, -50%) rotate(-6deg);
     }
 
     img:nth-child(3) {
-      transform: translate(-37%, -50%) rotate(6deg);
+      transform: translate(-38%, -50%) rotate(6deg);
+    }
+  }
+
+  /* Extra tiny screens (iPhone 5, etc.) */
+  @media (max-width: 360px) {
+    max-width: 230px;
+
+    img {
+      width: 88%;
+    }
+
+    img:nth-child(2) {
+      transform: translate(-60%, -50%) rotate(-4deg);
+    }
+
+    img:nth-child(3) {
+      transform: translate(-40%, -50%) rotate(4deg);
     }
   }
 `;
