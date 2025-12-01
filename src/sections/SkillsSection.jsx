@@ -71,8 +71,16 @@ const SkillsWrapper = styled.section`
 `;
 
 const SkillsInner = styled.div`
-  max-width: 900px;
   width: 100%;
+  max-width: 900px;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    max-width: 700px;
+  }
+
+  @media (max-width: 767px) {
+    max-width: 100%;
+  }
 `;
 
 const Title = styled.h2`
@@ -85,17 +93,42 @@ const Title = styled.h2`
 const Columns = styled.div`
   display: flex;
   gap: 3rem;
-  justify-content: flex-start;
   flex-wrap: wrap;
+  justify-content: flex-start;
 
-  @media (max-width: 768px) {
+  /* IPAD */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    flex-direction: column;    
+    align-items: center;       
+    justify-content: flex-start;
+    text-align: center;         
     gap: 2rem;
+  }
+
+  /* MOBILE */
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1.5rem;
   }
 `;
 
 const Column = styled.div`
   min-width: 140px;
+
+  /* IPAD */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 260px;              
+  }
+
+  /* MOBILE */
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `;
+
+
 
 const CategoryLabel = styled.div`
   display: flex;
@@ -108,6 +141,12 @@ const CategoryLabel = styled.div`
   background: transparent;
   font-size: 0.85rem;
   margin-bottom: 0.75rem;
+
+  /* MOBILE */
+  @media (max-width: 767px) {
+    width: max-content;
+    min-width: 120px;
+  }
 `;
 
 const List = styled.ul`
